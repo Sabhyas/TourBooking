@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163e36">
+  <meta name="description" content="აირჩიე ტური საქართველოში, დაჯავშნე თარიღი და შეამოწმე გადახდის პროცესი.">
+  <title>მთა — შენი შემდეგი მოგზაურობა</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#booking">დაჯავშნაზე გადასვლა</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="მთა — მთავარი გვერდი">
+      <svg viewBox="0 0 40 36" aria-hidden="true"><path d="M2 30 15 6l8 14 6-10 9 20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="m10 15 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <span>მთა<span class="brand-latin">MTA · TOURS</span></span>
+    </a>
+    <nav aria-label="მთავარი მენიუ">
+      <a href="#tours">ტურები</a>
+      <a class="nav-how" href="#how-it-works">როგორ მუშაობს</a>
+      <a class="nav-book" href="#booking">დაჯავშნა <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div id="modeNotice" class="mode-notice" hidden>
+        <span class="notice-dot" aria-hidden="true"></span>
+        <span><strong>საცდელი ვერსია</strong> — გადახდა სიმულირებულია; თანხა არ ჩამოგეჭრება.</span>
+        <span class="notice-side">სატესტო ტურები და ფასები</span>
+      </div>
+      <div id="loadError" class="error-box" role="alert" hidden>
+        <span id="loadErrorText"></span>
+        <button type="button" id="reloadConfig" class="text-button">ხელახლა ცდა</button>
+      </div>
+      <noscript><p class="error-box">დაჯავშნისთვის ბრაუზერში JavaScript უნდა იყოს ჩართული.</p></noscript>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="short-rule"></span> საქართველო გელოდება</p>
+          <h1 id="hero-title">ერთი დღე.<br>ახალი <span>აღმოჩენები.</span></h1>
+          <p class="hero-description">მთის გზები, ძველი ქალაქები და დაუვიწყარი ხედები. აირჩიე შენი მიმართულება — მოგზაურობა აქ იწყება.</p>
+          <a class="button button-dark hero-cta" href="#tours">იპოვე შენი ტური <span aria-hidden="true">↗</span></a>
+          <div class="hero-note"><span class="note-line" aria-hidden="true"></span> დაგეგმე მარტივად. იმოგზაურე მშვიდად.</div>
+        </div>
+        <div class="hero-art" role="img" aria-label="საქართველოს მთების ილუსტრაცია მზიან დღეს">
+          <svg viewBox="0 0 650 510" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e6eadf"/><stop offset="1" stop-color="#faf1dc"/></linearGradient>
+              <linearGradient id="near" x2="1" y2="1"><stop stop-color="#31584e"/><stop offset="1" stop-color="#163e36"/></linearGradient>
+            </defs>
+            <path fill="url(#sky)" d="M0 0h650v510H0z"/>
+            <circle cx="484" cy="106" r="52" fill="#eeb77d"/>
+            <path d="m-30 336 119-164 58 61L295 49l158 218 58-86 167 175v154H0Z" fill="#a1b2a2"/>
+            <path d="m173 202 122-153 110 153-73-36-27-48-25 49-30-7-30 38-30-7Z" fill="#fbf7eb"/>
+            <path d="m320 84 133 183-49 61-84-111-39-23 33-15-10-36Z" fill="#6f9184"/>
+            <path d="m-50 400 142-147 139 99 154-161 151 163 139-74v230H0Z" fill="#72917c"/>
+            <path d="m-40 479 156-115 106 58 162-100 130 59 141-79v208H0Z" fill="url(#near)"/>
+            <path d="M295 510c75-61 197-55 160-92-24-24-85-27-80-45 4-15 31-31 58-44-19 18-40 29-33 41 10 18 89 27 99 51 17 40-89 43-119 89Z" fill="#d5c9a4"/>
+            <g fill="#163e36"><path d="m59 415 14-55 14 55h-11v23h-6v-23Z"/><path d="m93 402 17-69 17 69h-14v29h-6v-29Z"/><path d="m550 386 13-56 14 56h-11v25h-6v-25Z"/></g>
+            <g fill="#f8f4e8"><path d="M233 340h32v38h-32z"/><path d="m229 341 20-14 20 14Z"/><path d="M246 315h8v17h-8z"/></g><path d="M247 359h7v19h-7z" fill="#31584e"/>
+            <path d="m246 315 4-8 4 8Z" fill="#a96b48"/>
+            <path d="m525 156 9-4 9 4m-37-21 7-3 7 3" fill="none" stroke="#527164" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="art-caption"><span class="caption-dot"></span><span>გზა იწყება აქ</span><span aria-hidden="true">42° N · 44° E</span></div>
+        </div>
+      </section>
+
+      <section id="tours" class="tours-section" aria-labelledby="tours-title">
+        <div class="section-heading"><div><p class="eyebrow">შენი მიმართულება</p><h2 id="tours-title">სად წავიდეთ?</h2></div><p>აირჩიე დღე, რომელიც დაგამახსოვრდება.</p></div>
+        <div id="tourCards" class="tour-grid" aria-live="polite"><p class="loading-copy">ტურები იტვირთება…</p></div>
+      </section>
+
+      <section id="booking" class="booking-section" aria-labelledby="booking-title">
+        <div class="section-heading"><div><p class="eyebrow">მხოლოდ რამდენიმე ნაბიჯი</p><h2 id="booking-title">დაგეგმე შენი მოგზაურობა</h2></div><span class="section-number" aria-hidden="true">01 / 03</span></div>
+        <div id="activeBanner" class="active-banner" hidden><span id="activeBannerText">შენ უკვე გაქვს შექმნილი ჯავშანი.</span><button type="button" id="viewBooking" class="text-button">სტატუსის ნახვა <span aria-hidden="true">↗</span></button></div>
+        <div class="booking-layout">
+          <form id="bookingForm" class="booking-form">
+            <fieldset id="bookingFields" disabled>
+              <legend class="sr-only">ტურისა და სტუმრის მონაცემები</legend>
+              <h3><span class="step-dot">1</span> ტურის დეტალები</h3>
+              <label for="tourId">მიმართულება</label>
+              <select id="tourId" name="tourId" required><option value="">აირჩიე ტური</option></select>
+              <div class="form-row">
+                <div><label for="date">ტურის თარიღი</label><input id="date" name="date" type="date" required></div>
+                <div><label for="guests">მგზავრების რაოდენობა</label><input id="guests" name="guests" type="number" inputmode="numeric" min="1" max="10" step="1" value="2" required></div>
+              </div>
+              <div class="form-divider"></div>
+              <h3><span class="step-dot">2</span> საკონტაქტო მონაცემები</h3>
+              <label for="name">სახელი და გვარი</label>
+              <input id="name" name="name" autocomplete="name" minlength="2" maxlength="120" placeholder="მაგ.: ნინო გელაშვილი" required>
+              <div class="form-row">
+                <div><label for="email">ელფოსტა</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@example.com" required></div>
+                <div><label for="phone">ტელეფონი</label><input id="phone" name="phone" type="tel" autocomplete="tel" minlength="7" maxlength="30" placeholder="+995 5XX XX XX XX" required></div>
+              </div>
+              <label for="notes">დამატებითი ინფორმაცია <span class="optional">არასავალდებულო</span></label>
+              <textarea id="notes" name="notes" rows="3" maxlength="500" placeholder="რას უნდა მიაქციოს ორგანიზატორმა ყურადღება?"></textarea>
+              <p class="privacy-note">გადახდის დადასტურების შემდეგ ჯავშნის მონაცემები ტურის ორგანიზატორს გადაეცემა.</p>
+            </fieldset>
+            <div id="formError" class="error-box" role="alert" hidden></div>
+            <button id="retrySubmit" type="button" class="button button-outline retry-button" hidden>წინა მოთხოვნის ხელახლა შემოწმება</button>
+          </form>
+          <aside class="summary-card" aria-label="ჯავშნის შეჯამება">
+            <div class="summary-kicker"><span class="step-dot">3</span><span>შენი მოგზაურობა</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 10 5l4 8 3-5 5 11Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+            <h3 id="summaryTour">აირჩიე ტური</h3>
+            <p id="summaryDescription" class="summary-description">ყველა მნიშვნელოვანი დეტალი ერთ ადგილას.</p>
+            <dl class="summary-details">
+              <div><dt>თარიღი</dt><dd id="summaryDate">—</dd></div>
+              <div><dt>მგზავრები</dt><dd id="summaryGuests">2 ადამიანი</dd></div>
+              <div><dt>ფასი ერთ ადამიანზე</dt><dd id="summaryPrice">—</dd></div>
+            </dl>
+            <div class="summary-total"><span>სულ გადასახდელი</span><strong id="summaryTotal">—</strong></div>
+            <p id="priceNote" class="price-note">ჯამი: ერთი ადამიანის ფასი × მგზავრების რაოდენობა</p>
+            <button id="submitBooking" form="bookingForm" type="submit" class="button button-dark payment-button" disabled><span id="submitLabel">გადახდაზე გადასვლა</span><span id="submitArrow" aria-hidden="true">↗</span></button>
+            <p id="paymentNote" class="payment-note">გადახდის შემდეგ ჯავშნის სტატუსს აქვე ნახავ.</p>
+            <div class="summary-footer"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="8" width="12" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 8V5a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span>ბარათის მონაცემები ამ საიტზე არ ინახება</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how-section" aria-labelledby="how-title">
+        <div class="section-heading"><div><p class="eyebrow">მარტივად და გასაგებად</p><h2 id="how-title">როგორ მუშაობს?</h2></div></div>
+        <ol class="how-grid">
+          <li><span class="how-number">01</span><h3>აირჩიე ტური</h3><p>მიუთითე სასურველი თარიღი, მგზავრების რაოდენობა და შენი საკონტაქტო მონაცემები.</p></li>
+          <li><span class="how-number">02</span><h3>გადაიხადე</h3><p id="howPayment">დაჯავშნა დასტურდება მხოლოდ გადახდის შედეგის შემოწმების შემდეგ.</p></li>
+          <li><span class="how-number">03</span><h3>მიიღე დადასტურება</h3><p id="howNotification">ჯავშანი შეინახება, ხოლო ორგანიზატორს მის შესახებ ელფოსტის შეტყობინება გაეგზავნება.</p></li>
+        </ol>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><span class="footer-brand">მთა <span>· გზად ახალი ამბებისკენ</span></span><p id="footerMode">ტურის დაჯავშნის მაგალითი</p><a href="#booking">დაგეგმე მოგზაურობა <span aria-hidden="true">↑</span></a></footer>
+
+  <template id="tourCardTemplate">
+    <article class="tour-card">
+      <div class="tour-art" aria-hidden="true"><svg viewBox="0 0 390 145" preserveAspectRatio="xMidYMid slice"><circle cx="310" cy="35" r="22" class="tour-sun"/><path d="m-20 150 116-111 73 60 95-91 143 142Z" class="tour-mountain-back"/><path d="m216 54 48-46 45 46-28-9-13-17-11 20-15-3-11 11Z" class="tour-snow"/><path d="m-10 150 86-66 92 48 101-56 144 74Z" class="tour-mountain-front"/><path d="M190 145c20-14 58-27 43-38-6-5-20-9-17-14 2 5 17 6 26 12 20 13-7 27-22 40Z" class="tour-path"/></svg><span class="tour-tag"></span></div>
+      <div class="tour-card-content"><div class="tour-title-row"><h3></h3><span class="tour-duration"></span></div><p class="tour-description"></p><div class="tour-card-bottom"><p class="tour-card-price"><strong></strong><span> / ადამიანი</span></p><button type="button" class="select-tour" aria-pressed="false">არჩევა <span aria-hidden="true">↗</span></button></div></div>
+    </article>
+  </template>
+
+  <dialog id="bookingDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescription">
+    <div class="dialog-top"><span id="dialogEyebrow" class="eyebrow">შენი ჯავშანი</span><button id="closeDialog" type="button" class="close-button" aria-label="ფანჯრის დახურვა">×</button></div>
+    <div id="dialogIcon" class="dialog-icon" aria-hidden="true">↗</div>
+    <h2 id="dialogTitle">ჯავშნის სტატუსი</h2>
+    <p id="dialogDescription" class="dialog-description"></p>
+    <dl class="dialog-summary"><div><dt>ტური</dt><dd id="dialogTour">—</dd></div><div><dt>თარიღი / მგზავრები</dt><dd id="dialogDate">—</dd></div><div><dt>თანხა</dt><dd id="dialogAmount">—</dd></div><div><dt>ჯავშნის ნომერი</dt><dd id="dialogBookingId" class="booking-id">—</dd></div></dl>
+    <div id="dialogError" class="error-box" role="alert" hidden></div>
+    <div id="demoActions" class="demo-actions" hidden><p class="demo-explainer">ეს საცდელი გადახდაა. ბარათის მონაცემები არ შეიყვანო — თანხა არ ჩამოგეჭრება.</p><button id="demoSuccess" class="button button-dark" type="button">წარმატებული გადახდის ცდა <span aria-hidden="true">✓</span></button><button id="demoFailure" class="button button-outline" type="button">წარუმატებელი გადახდის ცდა</button></div>
+    <div id="bankActions" class="bank-actions" hidden><button id="continuePayment" class="button button-dark" type="button">ბანკის გადახდის გვერდზე გადასვლა <span aria-hidden="true">↗</span></button></div>
+    <p id="notificationStatus" class="notification-status" role="status" hidden></p>
+    <details id="emailPreview" class="email-preview" hidden><summary>მფლობელის შეტყობინების ნახვა <span>საცდელი ელფოსტა</span></summary><div class="email-meta"><p><span>ვის:</span> <strong id="emailTo"></strong></p><p><span>თემა:</span> <strong id="emailSubject"></strong></p></div><pre id="emailBody"></pre><p class="preview-note">ეს შეტყობინების ლოკალური მაგალითია. რეალური ელფოსტა არ გაგზავნილა.</p></details>
+    <div class="dialog-footer"><button id="refreshStatus" type="button" class="text-button">სტატუსის განახლება</button><button id="newBooking" type="button" class="text-button" hidden>ახალი ჯავშნის დაწყება ↗</button></div>
+  </dialog>
+</body>
+</html>

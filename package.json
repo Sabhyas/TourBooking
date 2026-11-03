@@ -1,0 +1,35 @@
+{
+  "name": "mta-tour-booking",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Georgian tour booking starter with a local demo, verified TBC payments and a durable owner-email outbox.",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "node --import tsx --watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test --test-isolation=none tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "nodemailer": "10.2.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.10.0",
+    "@types/nodemailer": "^7.0.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
